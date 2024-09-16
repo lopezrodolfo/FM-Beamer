@@ -1,0 +1,113 @@
+\documentclass{beamer}
+\usepackage{listings}
+\usetheme{Madrid}
+\usecolortheme{default}
+
+\title{Formal Methods}
+\author{Rodolfo Lopez}
+\institute{USD}
+\date[March 2023]{March 2023}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Overview}
+\tableofcontents
+\end{frame}
+
+\section{What are Formal Methods?}
+
+\begin{frame}{Definition}
+\begin{itemize}
+\item Formal methods are mathematical techniques used for the specification, verification, and validation of software and hardware systems.
+\item Formal methods can be used to ensure the correctness, reliability, and safety of critical systems, such as those used in aerospace, defense, transportation, and healthcare.
+\end{itemize}
+\end{frame}
+
+\section{Model Checking}
+
+\begin{frame}{Model Checking}
+\begin{itemize}
+\item Model checking is a formal verification technique that checks whether a model of a system satisfies a given specification.
+\item Let $M$ be a model of a system and $\phi$ be a specification of the system. If we can check that $M$ satisfies $\phi$ using model checking, then we can guarantee that the system satisfies $\phi$ as well.
+\item Model checking can be used to verify that a circuit design meets its functional requirements and does not have any logical errors that could cause it to malfunction.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Model Checking Example}
+\begin{itemize}
+\item Suppose $M$ is a model of a system and $\phi$ is a specification of the system.
+\item To check if $M$ satisfies $\phi$, we construct the negation of $\phi$, denoted as $\neg \phi$.
+\item We then check if there exists a state in $M$ where $\neg \phi$ holds. If such a state exists, then $M$ does not satisfy $\phi$. Otherwise, $M$ satisfies $\phi$.
+\item This proof is based on the soundness and completeness of propositional logic, which ensures that the negation of a true proposition is false and vice versa.
+\end{itemize}
+\end{frame}
+
+\section{Lean Proof Assistant}
+
+\begin{frame}{Lean Proof Assistant}
+\begin{itemize}
+\item Lean is a powerful proof assistant that allows users to write and verify mathematical proofs using formal logic.
+\item It is based on dependent type theory, which allows for the definition of complex data structures and logical propositions.
+\item Lean provides a user-friendly interface for writing and checking proofs, making it an ideal tool for formal methods.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Lean Example Code}
+\begin{lstlisting}
+inductive mynat
+| zero : mynat
+| succ (n : mynat) : mynat
+\end{lstlisting}
+\begin{lstlisting}
+lemma zero_add (n : mynat) : zero + n = n :=
+begin
+induction n with d hd,
+{
+  rw add_zero,
+},
+{
+  rw add_succ,
+  rw hd,
+}
+end
+\end{lstlisting}
+\end{frame}
+
+\section{Modern Applications}
+
+\begin{frame}{Modern Applications}
+Formal methods and proof assistants like Lean are used in a variety of applications, including:
+\begin{itemize}
+\item \textbf{Software Verification}: Formal methods can be used to verify that software is correct and free of bugs. This is particularly important in safety-critical systems, such as medical devices and transportation systems.
+\item \textbf{Hardware Verification}: Formal methods can also be used to verify that hardware designs are correct and meet specifications.
+\item \textbf{Artificial Intelligence}: Formal methods are increasingly being used in the development of AI systems, to ensure that they are safe, reliable, and free of bias.
+\item \textbf{Blockchain Technology}: Formal methods are used to verify the correctness and security of smart contracts and other blockchain-based systems.
+\end{itemize}
+\end{frame}
+
+\section{Challenges}
+
+\begin{frame}{Challenges}
+\begin{itemize}
+\item Formal methods require a high level of mathematical expertise and are often time-consuming and expensive to apply.
+\item Formal methods can only guarantee correctness with respect to a given specification, which may not capture all possible scenarios or requirements of a system.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusion}
+\begin{itemize}
+\item Formal methods and proof assistants like Lean are powerful tools for specifying, developing and verifying software and hardware systems.
+\item They are used in a variety of applications and are particularly important in safety-critical systems, AI, and blockchain technology.
+\end{itemize}
+\end{frame}
+
+\end{document}
+
+
+
+
+
