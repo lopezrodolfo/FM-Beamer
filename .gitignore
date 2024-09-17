@@ -8,3 +8,9 @@
 *.snm
 *.toc
 *.vrb
+
+# VSCode workspace settings
+.vscode/
+
+# macOS system files
+.DS_Store
